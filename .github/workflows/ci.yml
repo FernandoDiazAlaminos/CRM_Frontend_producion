@@ -22,7 +22,7 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /home/${{ secrets.HOSTINGER_USER }}/CRM_Frontend_develop
+            cd /home/${{ secrets.HOSTINGER_USER }}/CRM_Frontend_producion
             # Iniciar el agente SSH
             eval "$(ssh-agent -s)"
 
