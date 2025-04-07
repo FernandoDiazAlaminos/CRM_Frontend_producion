@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* Evita el scroll horizontal en móviles */
+html, body {
+  /* overflow-x: hidden; */
+}
+
+/* Estilos generales para el scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Aumentamos un poco el ancho para que se vea mejor */
+  height: 10px;
+  cursor: pointer;
+  
+}
+
+/* Track (fondo del scrollbar) */
+::-webkit-scrollbar-track {
+  background: #000000; /* Color oscuro para contraste */
+}
+
+input::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+/* Thumb (la parte arrastrable) con borde redondeado completo */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #9333ea); /* Degradado de azul a morado */
+  border-radius: 50px; /* Redondeo completo */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover sobre el thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb, #7c3aed); /* Variación más intensa */
+}

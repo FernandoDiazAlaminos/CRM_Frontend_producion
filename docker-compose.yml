@@ -1,0 +1,9 @@
+services:
+  dimap_gestion_client:
+    build: ./client
+    container_name: crm_frontend_dev
+    networks:
+      - app-network
+networks:
+  app-network:
+    external: true

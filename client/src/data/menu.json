@@ -1,0 +1,11 @@
+[
+    { "label": "Dashboard", "path": "/dashboard", "roles": ["admin", "user"] },
+    { "label": "Usuarios", "path": "/users", "roles": ["admin", "user"] },
+    { "label": "Categorías", "path": "/categories", "roles": ["admin", "user"] },
+    { "label": "Sub-Categorías", "path": "/subcategories", "roles": ["admin", "user"] },
+    { "label": "Sub-Sub-Categorías", "path": "/subsubcategories", "roles": ["admin", "user"] },
+    { "label": "Posts", "path": "/posts", "roles": ["admin", "user"] },
+    { "label": "Seo", "path": "/seo", "roles": ["admin", "user"] },
+    { "label": "Configuración", "path": "/settings", "roles": ["admin"] }
+  ]
+  

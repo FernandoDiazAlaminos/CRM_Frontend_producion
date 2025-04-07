@@ -1,0 +1,47 @@
+name: Deploy to Development
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Checkout del código
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      # Paso 2: Configurar y conectar con el servidor mediante SSH
+      - name: Deploy to Hostinger
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          key: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/${{ secrets.HOSTINGER_USER }}/CRM_Frontend_develop
+            # Iniciar el agente SSH
+            eval "$(ssh-agent -s)"
+
+            # Añadir la clave privada adicional (github_key)
+            ssh-add ~/.ssh/github_key
+
+            # Configura git y pull del repositorio
+            git pull
+
+            # Reinicia los contenedores de Docker
+            docker compose down
+            docker compose up --build -d
+
+            # Reiniciar el nginx
+            cd /home/${{ secrets.HOSTINGER_USER }}/CRM_NGINX
+            docker restart nginx
+
+            #liberar imagenes 
+            docker system prune -f
+
+            #liberar memoria 
+            free -h
