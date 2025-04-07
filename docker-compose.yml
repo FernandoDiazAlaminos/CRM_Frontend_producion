@@ -1,7 +1,7 @@
 services:
   dimap_gestion_client:
     build: ./client
-    container_name: crm_frontend_dev
+    container_name: crm_frontend_pro
     networks:
       - app-network
 networks:
